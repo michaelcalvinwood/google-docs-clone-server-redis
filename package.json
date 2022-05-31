@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/michaelcalvinwood/google-docs-clone-server-redis#readme",
   "dependencies": {
+    "@socket.io/redis-adapter": "^7.2.0",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
+    "http": "^0.0.1-security",
     "mongoose": "^6.3.5",
+    "redis": "^4.1.0",
     "socket.io": "^4.5.1"
   }
 }

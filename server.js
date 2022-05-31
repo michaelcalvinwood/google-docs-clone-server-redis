@@ -1,17 +1,31 @@
-const PORT=3001;
+// const io = require('socket.io')(server, {cors: {origin: "*"}});
 
-const io = require('socket.io')(PORT, {
+const PORT=3001;
+const app = require('express')();
+const httpServer = require('http').createServer(app);
+const { Server } = require('socket.io');
+const { createClient } = require('redis');
+const { createAdapter } = require('@socket.io/redis-adapter');
+
+const io = new Server(httpServer, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: '*',
         methods: ['GET', 'POST']
     }
-})
+  });
+const pubClient = createClient({ host: 'localhost', port: 6379 });
+const subClient = pubClient.duplicate();
+
+Promise.all([pubClient.connect(), subClient.connect()]).then(() => {
+  io.adapter(createAdapter(pubClient, subClient));
+  io.listen(PORT);
+});
+
 const mongoose = require('mongoose');
 const Document = require('./Document');
 
 mongoose.connect('mongodb://localhost/google-docs-clone');
 const defaultValue = '';
-
 
 io.on("connection", socket => {
     
