@@ -1,0 +1,25 @@
+{
+  "name": "google-docs-clone-server-redis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelcalvinwood/google-docs-clone-server-redis.git"
+  },
+  "author": "Michael Wood",
+  "license": "SEE LICENSE IN license.md",
+  "bugs": {
+    "url": "https://github.com/michaelcalvinwood/google-docs-clone-server-redis/issues"
+  },
+  "homepage": "https://github.com/michaelcalvinwood/google-docs-clone-server-redis#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5",
+    "socket.io": "^4.5.1"
+  }
+}
